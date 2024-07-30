@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Account Page</title>
+  <center> 
+  <b>
+  <style>
+    *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+} 
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff05;
+      flex-wrap: initial;    
+      margin: 0;
+        padding-top: 120px;
+       /* justify-content: center;
+      align-items: center; */
+      height: 200px;
+       background-image: url("images/account page.jpg");
+       background-size: 1800px;
+    }
+    #container {
+      background-color: #f6f1f1;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 100px 100px;
+      margin-top: auto;
+      border-radius: 8px;
+      box-shadow:   10px 10px 200px ;
+      /* #d0b0f4 inset;    */
+      width: 400px;
+    height: min-content;
+    height: auto;
+   
+    }
+    /* #9DF9EF */
+ 
+    #profile-pic {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      padding: 10px;
+      object-fit: cover;
+    }
+
+    input, button {
+      margin: 10px 0;
+      padding: 8px;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: #ffffff05;
+    }
+    input:focus
+    input:valid{
+      color: #d0b0f4;
+      border: 5px solid #d0b0f4;
+      
+    }
+  </style>
+</head>
+<body> 
+
+<div id="container" class="lineyard">
+  <img src="default-profile-pic.jpg" alt="ACCOUNT INFO" id="profile-pic">
+  <input type="file" id="profile-pic-input" accept="image/*">
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Password">
+   <select id="gender">
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+    <option value="other">Other</option>
+  </select>
+  <div class="clkbtn">
+  <input type="date" id="dob" placeholder="Date of Birth">
+  <button onclick="updateProfile()"><b>Update Profile</b></button>
+   <a href="newpass.html"><button onclick="resetPassword()"><b>Reset Password</b></button></a>
+  <!-- <div>
+    <a href="https://www.instagram.com/"><button onclick="linkAccount('instagram')"><b>Link Instagram</b></button></a>
+    <a href="https://in.linkedin.com/"><button onclick="linkAccount('linkedin')"><b>Link LinkedIn</b></button></a>
+    <a href="https://twitter.com/login?lang=en"><button onclick="linkAccount('twitter')"><b>Link Twitter</b></button></a>
+  </div>  -->
+</div>
+ </div>
+<script>
+  // Simulate updating the profile
+  function updateProfile() {
+    const username = document.getElementById('username').value;
+    const gender = document.getElementById('gender').value;
+    const dob = document.getElementById('dob').value;
+
+    // Perform necessary actions, e.g., send data to a server
+    console.log('Updating profile:', { username, gender, dob });
+  }
+
+  // Simulate resetting the password
+  function resetPassword() {
+    const username = document.getElementById('username').value;
+
+    // Perform necessary actions, e.g., send request to reset password
+    console.log('Resetting password for:', username);
+  }
+
+  // Simulate linking social media accounts
+  function linkAccount(platform) {
+    // Perform necessary actions, e.g., redirect to OAuth flow for the selected platform
+    console.log('Linking', platform, 'account');
+  }
+
+  // Handle profile picture upload
+  const profilePicInput = document.getElementById('profile-pic-input');
+  profilePicInput.addEventListener('change', handleProfilePicUpload);
+
+  function handleProfilePicUpload() {
+    const profilePic = document.getElementById('profile-pic');
+    const file = profilePicInput.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        profilePic.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+</script>
+</center>
+</body></html>

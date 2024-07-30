@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Security Question</title>
+    <b>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("./images/neon\ light\ background\ blur\ fluorescent\ glow\ purple.jpg");
+            background-repeat:no-repeat;
+            background-size: cover;
+
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+        }
+
+        #securityContainer {
+            max-width: 400px;
+            /* background-color: #fff; */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            background-color: #ffffff05;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(20px);
+        }
+
+        #securityQuestion {
+            margin-bottom: 20px;
+        }
+
+        #userInput {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+        }
+        .confirm{
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="securityContainer">
+        <h2 style="color: white;">Security Question</h2>
+        <div id="securityQuestion"></div>
+        <input type="text" id="userInput" placeholder="Your Answer">
+        <button onclick="generateSecurityQuestion()">Generate Question</button>
+        <button> <a href="Mailstorage.html" class="confirm">Confirm</a></button>
+    </div>
+
+    <script>
+        const securityQuestions = [
+            "What is your mother's maiden name?",
+            "In which city were you born?",
+            "What is the name of your first pet?",
+            "What is your favorite book?",
+            "Who is your favorite teacher?",
+            "What is your favorite movie?",
+            "What is the model of your first car?",
+            "What is the name of your best friend?",
+            "What is your favorite food?",
+            "What is the street where you grew up?"
+        ];
+
+        function generateSecurityQuestion() {
+            const securityQuestionContainer = document.getElementById("securityQuestion");
+            securityQuestionContainer.innerHTML = ""; // Clear previous question
+
+            // Get a random security question
+            const randomIndex = Math.floor(Math.random() * securityQuestions.length);
+            const randomQuestion = securityQuestions[randomIndex];
+
+            // Display the random question
+            const questionElement = document.createElement("p");
+            questionElement.textContent = randomQuestion;
+            securityQuestionContainer.appendChild(questionElement);
+        }
+
+        function cancel() {
+            const securityQuestionContainer = document.getElementById("securityQuestion");
+            const userInputField = document.getElementById("userInput");
+
+            securityQuestionContainer.innerHTML = ""; 
+            userInputField.value = "";
+        }
+    </script>
+</b>
+</body>
+</html>

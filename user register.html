@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .tab-content {
+            margin-top: 20px;
+        }
+        *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+} 
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>User Registration</h2>
+    
+    <!-- Form Section -->
+    <form id="registrationForm">
+        <div class="form-group">
+            <label for="inputUsername">Username</label>
+            <input type="text" class="form-control" id="inputUsername" placeholder="Enter your username" required>
+        </div>
+
+        <div class="form-group">
+            <label for="inputEmail">Email Address</label>
+            <input type="email" class="form-control" id="inputEmail" placeholder="Enter your email" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="inputPassword">Password</label>
+            <input type="password" class="form-control" id="inputPassword" placeholder="Enter your password" required>
+        </div>
+
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
+        </div>
+
+        <button type="button" class="btn btn-primary" onclick="submitForm()">Submit</button>
+    </form>
+
+    <!-- Tabular Section -->
+    <h3>Password Table</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Encrypted Password</th>
+            </tr>
+        </thead>
+        <tbody id="passwordTableBody"></tbody>
+    </table>
+</div>
+
+<script src="jquery/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+ <script>
+    // Function to encrypt the password
+    function encryptPassword(password) {
+        // Replace this with your secure password encryption logic
+        return "*".repeat(password.length);
+    }
+
+    // Function to submit the form
+    function submitForm() {
+        var username = document.getElementById('inputUsername').value;
+        var email = document.getElementById('inputEmail').value;
+        var password = document.getElementById('inputPassword').value;
+        var confirmPassword = document.getElementById('confirmPassword').value;
+
+        if (password !== confirmPassword) {
+            alert("Passwords do not match.");
+            return
+        };
+
+        var storedData = JSON.parse(localStorage.getItem('userData')) || [];
+        storedData.push(userData);
+        localStorage.setItem('userData', JSON.stringify(storedData));
+
+        // Clear input fields
+        document.getElementById('inputUsername').value = '';
+        document.getElementById('inputEmail').value = '';
+        document.getElementById('inputPassword').value = '';
+        document.getElementById('confirmPassword').value = '';
+
+        // Display submitted data in the table
+        displayTable();
+    }
+
+    // Function to display the table
+    function displayTable() {
+        var tableBody = document.getElementById('passwordTableBody');
+        tableBody.innerHTML = "";
+
+        var storedData = JSON.parse(localStorage.getItem('userData')) || [];
+
+        storedData.forEach(function (userData) {
+            var newRow = tableBody.insertRow(tableBody.rows.length);
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+
+            cell1.innerHTML = userData.username;
+            cell2.innerHTML = userData.email;
+            cell3.innerHTML = userData.encryptedPassword;
+        });
+    }
+
+    // Display table on page load
+    displayTable();
+</script>
+
+</body>
+</html>

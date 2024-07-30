@@ -1,0 +1,222 @@
+ 
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login & Registration Form</title>
+    <link rel="stylesheet" href="LOGIN.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <h3 class="title">Login & Registration Form</h3>
+    </header>
+
+    <!-- container div -->
+    <div class="container">
+      <!-- upper button section to select
+             the login or signup form -->
+      <div class="slider"></div>
+      <div class="btn">
+        <button class="login2">Login</button>
+        <button class="signup2">Signup</button>
+      </div>
+
+      <!-- Form section that contains the
+             login and the signup form -->
+      <div class="form-section">
+        <!-- login form -->
+        <div class="login-box">
+          <input
+            type="email"
+            class="email ele"
+            id="login_email"
+            placeholder="your-email@email.com"
+          />
+          <input
+            type="password"
+            class="password ele"
+            id="login_password"
+            placeholder="password"
+          />
+          <button class="clkbtn" id="login_button">Login</button>
+          <a href="forgot.html" class="forgot"
+            ><b
+              ><h3 style="color: rgb(141, 138, 138)">Forgot Password</h3></b
+            ></a
+          >
+          <b><h2></h2></b>
+        </div>
+
+        <!-- signup form -->
+        <div class="signup-box">
+          <input
+            type="text"
+            class="name ele"
+            id="signup_name"
+            placeholder="Enter your name"
+          />
+          <input
+            type="email"
+            class="email ele"
+            id="signup_email"
+            placeholder="youremail@gmail.com"
+          />
+          <input
+            type="password"
+            class="password ele"
+            id="signup_password"
+            placeholder="password"
+          />
+          <input
+            type="password"
+            class="password ele"
+            id="confirm_password"
+            placeholder="Confirm password"
+          />
+          <button class="clkbtn" id="signup_button">Signup</button>
+          <a class="custom" href="password selector .html"
+            ><b
+              ><h3 style="color: rgb(141, 138, 138)">Customize Password</h3></b
+            ></a
+          >
+          <div id="output" style="color: aliceblue"><h3></h3></div>
+        </div>
+      </div>
+    </div>
+
+   
+    <script src="script.js"></script>
+    <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDdsGl9Ggw5F6NGV0k-hliGgAMCI8hOGws",
+      authDomain: "newp-3c8a7.firebaseapp.com",
+       projectId: "newp-3c8a7",
+      storageBucket: "newp-3c8a7.appspot.com",
+      messagingSenderId: "998128229916",
+      appId: "1:998128229916:web:421724bf4b46f4e476c9d9",
+      measurementId: "G-K5Q08DKR5G",
+    };
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+	  const analytics = getAnalytics(app);
+	  const auth = getAuth();
+	  console.log(app);
+    // Login button click event
+    document.getElementById("login_button").addEventListener("click", function () {
+        const email = document.getElementById("login_email").value;
+        const password = document.getElementById("login_password").value;
+        
+          signInWithEmailAndPassword(email, password)
+          .then((userCredential) => {
+            // User logged in successfully
+            alert("Login successful!");
+          })
+          .catch((error) => {
+            alert(error.message);
+          });
+      });
+
+    // Signup button click event
+    document.getElementById("signup_button").addEventListener("click", function () {
+  const email = document.getElementById("signup_email").value;
+  const password = document.getElementById("signup_password").value;
+  const confirmPassword = document.getElementById("confirm_password").value;
+
+  if (password !== confirmPassword) {
+    alert("Passwords do not match!");
+    return;
+  }
+
+  createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      // User registered successfully
+      alert("Registration successful!");
+    })
+    .catch((error) => {
+      alert(error.message);
+      console.log(error)
+    });
+});
+
+   </script> 
+
+  </body>
+</html>
+</body>
+</html>
+
+
+<!-- Your HTML code remains the same -->
+    <!-- <script type="module"> 
+	  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+	  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDdsGl9Ggw5F6NGV0k-hliGgAMCI8hOGws",
+        authDomain: "newp-3c8a7.firebaseapp.com",
+         projectId: "newp-3c8a7",
+        storageBucket: "newp-3c8a7.appspot.com",
+        messagingSenderId: "998128229916",
+        appId: "1:998128229916:web:421724bf4b46f4e476c9d9",
+        measurementId: "G-K5Q08DKR5G",
+      };
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+	  const analytics = getAnalytics(app);
+	  const auth = getAuth();
+	  console.log(app);
+      // Login button click event
+      document
+        .getElementById("login_button")
+        .addEventListener("click", function () {
+          const email = document.getElementById("login_email").value;
+          const password = document.getElementById("login_password").value;
+          auth
+            .signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+              // User logged in successfully
+              alert("Login successful!");
+            })
+            .catch((error) => {
+              alert(error.message);
+            });
+        });
+
+      // Signup button click event
+      document
+        .getElementById("signup_button")
+        .addEventListener("click", function () {
+          const email = document.getElementById("signup_email").value;
+          const password = document.getElementById("signup_password").value;
+          const confirmPassword =
+            document.getElementById("confirm_password").value;
+
+          if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return;
+          }
+
+          
+            createUserWithEmailAndPassword(email, password,name)
+            .then((userCredential) => {
+              // User registered successfully
+              alert("Registration successful!");
+            })
+            .catch((error) => {
+              alert(error.message);
+            });
+        });
+     </script> -->
+ 
+   
+
+

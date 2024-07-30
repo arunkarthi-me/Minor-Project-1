@@ -1,0 +1,44 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  
+  
+  body {
+    font-family: 'Arial', sans-serif; /* Add your preferred font-family */
+    color: #ffffff; /* Set text color to white or a suitable contrast */  
+      background: linear-gradient(43deg, #7321e2 0%, #bf2ccf 46%, #7825e6 100%);
+
+  }
+  button{
+    
+    background-color: #008CBA; /* Set background color of the button */
+    border: none;
+    color: white; /* Set text color of the button */
+    padding: 15px 32px; /* Add padding to the button */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; /* Set font size of the button */
+    margin: 4px 2px;
+    cursor: pointer; /* Add cursor pointer when hovering */
+    border-radius: 4px; /* Add rounded corners to the button */
+    transition: background-color 0.3s; /* Add transition effect to the button */
+   }
+   
+   button:hover {
+    background-color: #007B9A; /* Change background color of the button when hovering */
+   }
+  
+  .container {
+    max-width: 600px;
+    color: aliceblue;
+  
+}
+  
+  .btn-primary {
+    margin-top: 10px;
+  }
+  

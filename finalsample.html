@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 30px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.45), 0 4px 8px rgba(0, 0, 0, 0.35), 0 8px 12px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            position: relative;
+            background-image: url("./images/MAIN-1.jpg"); 
+        }
+        
+        header {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: ghostwhite;
+        }
+        
+        .heading {
+            color: green;
+        }
+        
+        .title {
+            font-weight: 400;
+            letter-spacing: 1.5px;
+        }
+        
+        .container {
+            height: 600px;
+            width: 500px;
+            border-radius: 15px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.45), 0 4px 8px rgba(0, 0, 0, 0.35), 0 8px 12px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+            background-color: #ffffff05;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .btn {
+            height: 60px;
+            width: 300px;
+            margin: 20px auto;
+            box-shadow: 10px 10px 30px rgb(254, 215, 188);
+            border-radius: 50px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+        .login2,
+        .signup2 {
+            font-size: 22px;
+            text-anchor: ghostwhite;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .slider {
+            height: 60px;
+            width: 150px;
+            border-radius: 50px;
+            background-image: linear-gradient(to right, rgb(255, 195, 110), rgb(255, 146, 91));
+            position: absolute;
+            top: 20px;
+            left: 100px;
+            transition: all 0.5s ease-in-out;
+        }
+        
+        .moveslider {
+            left: 250px;
+        }
+        
+        .form-section {
+            height: 500px;
+            width: 1000px;
+            padding: 20px 0;
+            display: flex;
+            position: relative;
+            transition: all 0.5s ease-in-out;
+            left: 0px;
+        }
+        
+        .form-section-move {
+            left: -500px;
+        }
+        
+        .login-box,
+        .signup-box {
+            height: 100%;
+            width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0px 40px;
+        }
+        
+        .login-box {
+            gap: 50px;
+        }
+        
+        .signup-box {
+            gap: 30px;
+        }
+        
+        .ele {
+            height: 60px;
+            width: 400px;
+            outline: none;
+            border: none;
+            color: rgba(77, 77, 77);
+            background-color: rgba(240, 240, 240);
+            border-radius: 50px;
+            padding-left: 30px;
+            font-size: 18px;
+        }
+        
+        .clkbtn {
+            height: 60px;
+            width: 150px;
+            border-radius: 50px;
+            background-image: linear-gradient(to right, rgb(255, 195, 110), rgb(255, 146, 91));
+            font-size: 22px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        /* For Responsiveness of the page */
+        
+        @media screen and (max-width: 650px) {
+            .container {
+                height: 600px;
+                width: 300px;
+            }
+        
+            .title {
+                font-size: 15px;
+            }
+        
+            .btn {
+                height: 50px;
+                width: 200px;
+                margin: 20px auto;
+            }
+        
+            .login2,
+            .signup2 {
+                font-size: 19px;
+            }
+        
+            .slider {
+                height: 50px;
+                width: 100px;
+                left: 50px;
+            }
+        
+            .moveslider {
+                left: 150px;
+            }
+        
+            .form-section {
+                height: 500px;
+                width: 600px;
+            }
+        
+            .form-section-move {
+                left: -300px;
+            }
+        
+            .login-box,
+            .signup-box {
+                height: 100%;
+                width: 300px;
+            }
+        
+            .ele {
+                height: 50px;
+                width: 250px;
+                font-size: 15px;
+            }
+        
+            .clkbtn {
+                height: 50px;
+                width: 130px;
+                font-size: 19px;
+            }
+        }
+        
+        @media screen and (max-width: 320px) {
+            .container {
+                height: 600px;
+                width: 250px;
+                color: ghostwhite;
+            }
+        
+            .heading {
+                font-size: 30px;
+            }
+        
+            .title {
+                font-size: 10px;
+            }
+        
+            .btn {
+                height: 50px;
+                width: 200px;
+                margin: 20px auto;
+            }
+        
+            .login2,
+            .signup2 {
+                font-size: 19px;
+            }
+        
+            .slider {
+                height: 50px;
+                width: 100px;
+                left: 27px;
+            }
+        
+            .moveslider {
+                left: 127px;
+            }
+        
+            .form-section {
+                height: 500px;
+                width: 500px;
+                color: #2f4f4f;
+            }
+        
+            .form-section-move {
+                left: -250px;
+                color: #808080;
+            }
+        
+            .login-box,
+            .signup-box {
+                height: 100%;
+                width: 250px;
+                color: #808080;
+            }
+        
+            .ele {
+                height: 50px;
+                width: 220px;
+                font-size: 15px;
+            }
+        
+            .clkbtn {
+                height: 50px;
+                width: 130px;
+                font-size: 19px;
+            }
+        }
+        
+        .forgot {
+            outline: none;
+            border: none;
+            text-decoration: none;
+        }
+        
+        .custom {
+            text-decoration: none;
+        }
+    </style>
+    </style>
+    <title>How to create Firebase login and register?</title>
+</head>
+<body>
+
+<div class="navbar navbar-default">
+    <!-- Navbar code -->
+</div>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <form name="registration_form" id="registration_form" method="post" action="#" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" class="form-control ele" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="form-control ele" placeholder="Enter your password">
+                </div>
+                <button type="button" id="register" name="register" class="btn clkbtn">Register Now</button>
+            </form>
+        </div>
+        <div class="col-sm-4">
+            <img src="firebase_auth.png">
+        </div>
+        <div class="col-sm-4">
+            <form name="login_form" id="login_form" method="post" action="#" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" name="login_email" id="login_email" class="form-control ele" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="login_password" id="login_password" class="form-control ele" placeholder="Enter your password">
+                </div>
+                <button type="button" id="login" name="login" class="btn clkbtn">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+
+    const firebaseConfig = {
+        // Firebase configuration
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth();
+    console.log(app);
+
+    // Registration logic
+    document.getElementById("register").addEventListener("click", function () {
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        //For new registration
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                console.log(user);
+                alert("Registration successfully!!");
+                // ...
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                console.log(errorMessage);
+                alert(errorMessage);
+            });
+    });
+
+    // Login logic
+    document.getElementById("login").addEventListener("click", function () {
+        var email = document.getElementById("login_email").value;
+        var password = document.getElementById("login_password").value;
+
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                console.log(user);
+                alert(user.email + " Login successfully!!!");
+                document.getElementById('logout').style.display = 'block';
+                // ...
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                console.log(errorMessage);
+                alert(errorMessage);
+            });
+    });
+
+    // Logout logic
+    document.getElementById("logout").addEventListener("click", function () {
+        signOut(auth).then(() => {
+            // Sign-out successful.
+            console.log('Sign-out successful.');
+            alert('Sign-out successful.');
+            document.getElementById('logout').style.display = 'none';
+        }).catch((error) => {
+            // An error happened.
+            console.log('An error happened.');
+        });
+    });
+
+    // Slider functionality
+    let signup2 = document.querySelector(".signup2");
+    let login2 = document.querySelector(".login2");
+    let slider = document.querySelector(".slider");
+    let formSection = document.querySelector(".form-section");
+     
+    signup2.addEventListener("click", () => {
+        slider.classList.add("moveslider");
+        formSection.classList.add("form-section-move");
+    });
+     
+    login2.addEventListener("click", () => {
+        slider.classList.remove("moveslider");
+        formSection.classList.remove("form-section-move");
+    });
+</script>
+</body>
+</html>
